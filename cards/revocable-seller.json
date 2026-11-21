@@ -19,9 +19,11 @@
           "verification": {
             "docs": "https://docs.concordium.com/en/mainnet/technical-reference/agent-registry/concordium-badge.html",
             "mcp": "https://agent-registry-mcp.concordium.com/mcp",
-            "service": "Concordium Agent Registry"
+            "service": "Concordium Agent Registry",
+            "verifyUrl": "https://agent-registry-mcp.concordium.com/v1/badge-check/JyP9VgQBSfyzem5wLRK4Y"
           },
-          "verify": "Resolve tokenAddress via CIS-8004 agent_of; confirm owner + status=Active + card SHA-256 == metadata_hash."
+          "verify": "Resolve tokenAddress via CIS-8004 agent_of; confirm owner + status=Active + card SHA-256 == metadata_hash.",
+          "tokenAddress": "ccd:4221332d34e1694168c2a0c0b3fd0f27/cis-2:JyP9VgQBSfyzem5wLRK4Y"
         },
         "required": false,
         "uri": "https://docs.concordium.com/a2a-extensions/concordium-badge/v1"
@@ -44,7 +46,12 @@
     "organization": "Verified Agent Escrow",
     "url": "https://github.com/danielx2d4144/verified-agent-escrow"
   },
-  "registrations": [],
+  "registrations": [
+    {
+      "agentId": 1375,
+      "agentRegistry": "ccd:4221332d34e1694168c2a0c0b3fd0f27:12802.0"
+    }
+  ],
   "skills": [
     {
       "description": "Delivers a short research summary on request, for a fixed test-CCD price held in Verified Agent Escrow. This test seller is revoked before delivery in the demo, to show the refund path.",
@@ -60,5 +67,7 @@
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "url": "https://raw.githubusercontent.com/danielx2d4144/verified-agent-escrow/main/cards/revocable-seller.json",
   "version": "1.0.0",
-  "x402Support": false
+  "x402Support": false,
+  "tokenAddress": "ccd:4221332d34e1694168c2a0c0b3fd0f27/cis-2:JyP9VgQBSfyzem5wLRK4Y",
+  "verifyUrl": "https://agent-registry-mcp.concordium.com/v1/badge-check/JyP9VgQBSfyzem5wLRK4Y"
 }
