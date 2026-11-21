@@ -19,9 +19,11 @@
           "verification": {
             "docs": "https://docs.concordium.com/en/mainnet/technical-reference/agent-registry/concordium-badge.html",
             "mcp": "https://agent-registry-mcp.concordium.com/mcp",
-            "service": "Concordium Agent Registry"
+            "service": "Concordium Agent Registry",
+            "verifyUrl": "https://agent-registry-mcp.concordium.com/v1/badge-check/JyP9VavmnYVMW8tx4WUbE"
           },
-          "verify": "Resolve tokenAddress via CIS-8004 agent_of; confirm owner + status=Active + card SHA-256 == metadata_hash."
+          "verify": "Resolve tokenAddress via CIS-8004 agent_of; confirm owner + status=Active + card SHA-256 == metadata_hash.",
+          "tokenAddress": "ccd:4221332d34e1694168c2a0c0b3fd0f27/cis-2:JyP9VavmnYVMW8tx4WUbE"
         },
         "required": false,
         "uri": "https://docs.concordium.com/a2a-extensions/concordium-badge/v1"
