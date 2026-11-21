@@ -1,0 +1,40 @@
+[package]
+name = "verified-agent-escrow"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# concordium-std 11 pairs with cargo-concordium 5.x and the
+# `wasm32v1-none` target (docs.rs concordium-std version table:
+# 11.x -> cargo-concordium 5.x; <=10 -> 4.x and the old
+# wasm32-unknown-unknown target). The current setup docs
+# (docs.concordium.com setup-env) install `wasm32v1-none`, so 11
+# is the correct pin. Do NOT downgrade to 10 without also
+# downgrading cargo-concordium to 4.x.
+concordium-std = "11"
+
+[features]
+# Local `std` feature used by the `#![cfg_attr(not(feature = "std"), no_std)]`
+# line in lib.rs. It is intentionally empty: concordium-std 11 exposes no
+# `std` feature to forward to.
+# IMPORTANT: default must stay EMPTY. `cargo concordium build` does NOT
+# disable default features, and `wasm32v1-none` has no std — a default-on
+# `std` breaks the wasm build with 86 errors (verified 21 Nov 2026).
+# Enable it only for host-side work: `cargo test --features std`.
+default = []
+std = []
+
+[dev-dependencies]
+# Integration tests (`tests/escrow.rs`) run the built wasm module on a
+# local test chain (concordium-smart-contract-testing 5, the library
+# Concordium's own integration-test guide uses). concordium-std is a
+# dev-dependency only for the parameter/return types in the test file;
+# it is NOT a runtime dependency of the contract.
+concordium-smart-contract-testing = "5"
+concordium-std = "11"
+
+[profile.release]
+lto = true

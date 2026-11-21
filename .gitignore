@@ -1,0 +1,27 @@
+# Dependencies and build output
+node_modules/
+dist/
+target/
+concordium-out/
+*.wasm
+
+# Environment and secrets — never commit these. The template
+# backend/.env.example is safe to commit; real values are not.
+.env
+.env.*
+!.env.example
+
+# Keys, wallets and credentials
+*.pem
+*.key
+id_*
+*.wallet
+wallet*.json
+
+# Logs and editor/OS files
+*.log
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
